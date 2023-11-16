@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell, ipcMain} from 'electron'
+import { app, BrowserWindow, shell, ipcMain, screen} from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
 
@@ -126,3 +126,18 @@ ipcMain.on('sync-message', (event, message) => {
   console.log(message); // 在控制台输出消息内容
   // return '主进程已收到同步消息'; // 返回响应给渲染进程
 });
+//移动窗口通讯
+ipcMain.on('move-window-to-center', (event) => {
+    moveWindowToCenter(win);
+  });
+// 移动窗口函数
+function moveWindowToCenter(window) {
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+  const windowWidth = window.getSize()[0];
+  const windowHeight = window.getSize()[1];
+  const x = Math.floor((width - windowWidth) / 2);
+  const y = Math.floor((height - windowHeight) / 2);
+  window.setPosition(x, y);
+  // 发送窗口位置更新给渲染进程
+  window.webContents.send('window-position-updated', { x, y });
+}

@@ -16,11 +16,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 import { ipcRenderer } from 'electron';
 import  {client}  from "../samples/client"
 import { ElMessage } from 'element-plus'
 import axios from 'axios'
+import { UserLogin }from '../apis/login.js'
 let fromdata = ref({
 	account:'',
 	passwd:''
@@ -28,22 +29,36 @@ let fromdata = ref({
 let huplac = ref(null)
 //登录
 function login() {
-	client.post('/api/auth/register',{
-		params:{
-			account:fromdata.value.account,
-			password:fromdata.value.passwd,
-		}
-	}).then(
-		res=>{
-			console.log(res)
-		}
-	).catch(
-		err=>{
+	
+	let userdata = {
+		account : fromdata.value.account,
+		password : fromdata.value.passwd
+	}
+	UserLogin(userdata)
+		.then(res => {
+			console.log(res.status,res.data)
+			ipcRenderer.send('move-window-to-center');
+		})
+		.catch(err =>{
 			console.log(err)
-		}
-	)
-  // ipcRenderer.send("sync-message", "发个同步消息");
-  console.log('1212')
+		})
+		
+	// client.post('/api/auth/register',{
+	// 	params:{
+	// 		account:fromdata.value.account,
+	// 		password:fromdata.value.passwd,
+	// 	}
+	// }).then(
+	// 	res=>{
+	// 		console.log(res)
+	// 	}
+	// ).catch(
+	// 	err=>{
+	// 		console.log(err)
+	// 	}
+	// )
+ //  // ipcRenderer.send("sync-message", "发个同步消息");
+ //  console.log('1212')
 }
 //注册
 function reg(){
@@ -65,6 +80,11 @@ function reg(){
 	}
 	)
 }
+// 监听
+ipcRenderer.on('window-position-updated', (event, position) => {
+  // 在这里更新窗口的位置
+  window.moveTo(position.x, position.y);
+});
 </script>
 
 <style scoped>
