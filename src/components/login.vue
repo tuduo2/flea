@@ -21,7 +21,7 @@ import { ipcRenderer } from 'electron';
 import  {client}  from "../samples/client"
 import { ElMessage } from 'element-plus'
 import axios from 'axios'
-import { UserLogin }from '../apis/login.js'
+import { UserLogin }from '../apis/index.js'
 let fromdata = ref({
 	account:'',
 	passwd:''
@@ -42,43 +42,29 @@ function login() {
 		.catch(err =>{
 			console.log(err)
 		})
-		
-	// client.post('/api/auth/register',{
-	// 	params:{
-	// 		account:fromdata.value.account,
-	// 		password:fromdata.value.passwd,
-	// 	}
-	// }).then(
-	// 	res=>{
-	// 		console.log(res)
-	// 	}
-	// ).catch(
-	// 	err=>{
-	// 		console.log(err)
-	// 	}
-	// )
- //  // ipcRenderer.send("sync-message", "发个同步消息");
- //  console.log('1212')
-}
+};
 //注册
 function reg(){
-	 
+	 let userdata = {
+	 	account : fromdata.value.account,
+	 	password : fromdata.value.passwd
+	 };
 	 // console.log(huplac.value)
-	axios.post('/api/auth/register',{
-		data:JSON.stringify({
-			account:fromdata.value.account,
-			password:fromdata.value.passwd
-		})
-	}).then(
-	res=>{
-		console.log(res)
-		ElNotification({ title: '注册成功！', message: '成功注册', type: 'success' });
-	}
-	).catch(
-	err=>{
-		console.log(err)
-	}
-	)
+// 	axios.post('/api/auth/register',{
+// 		data:JSON.stringify({
+// 			account:fromdata.value.account,
+// 			password:fromdata.value.passwd
+// 		})
+// 	}).then(
+// 	res=>{
+// 		console.log(res)
+// 		ElNotification({ title: '注册成功！', message: '成功注册', type: 'success' });
+// 	}
+// 	).catch(
+// 	err=>{
+// 		console.log(err)
+// 	}
+// 	)
 }
 // 监听
 ipcRenderer.on('window-position-updated', (event, position) => {
