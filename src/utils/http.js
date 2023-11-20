@@ -14,12 +14,12 @@ httpInstance.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-// httpInstance.interceptors.response.use(res => res.data, e => {
-//   // 统一错误提示
-//   ElMessage({
-//     type: 'warning',
-//     message: e.response.data.message
-//   })
-//   return Promise.reject(e)
-// })
+httpInstance.interceptors.response.use(res => res.data, e => {
+  // 统一错误提示
+  ElMessage({
+    type: 'warning',
+    message: e.response.data.data
+  })
+  return Promise.reject(e)
+})
 export default httpInstance

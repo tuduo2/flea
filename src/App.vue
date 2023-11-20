@@ -1,10 +1,10 @@
 <template>
   <div class="top">
     <div class='top-btn-grm'>
-      <mdui-icon-clear class="btn" @click="closwin()" />
+      <!-- <mdui-icon-clear class="btn" @click="closwin()" /> -->
     </div>
   </div>
-  <login v-if="islogin" />
+  <login  :changehome="changehome" v-if="islogin" />
   <home v-else />
 </template>
 
@@ -15,8 +15,9 @@ import login from './components/login.vue';
 import home from './components/home.vue';
 import {ipcRenderer} from 'electron'
 let islogin = ref(true)
-
-	
+function changehome(){
+	islogin.value = !islogin.value
+}
 function closwin(){
 	console.log('121')
 	ipcRenderer.send('colswin','11')

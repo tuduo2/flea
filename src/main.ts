@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import "./style.css"
 import App from './App.vue'
 import './samples/node-api'
+import 'element-plus/dist/index.css'
 import 'mdui/mdui.css';
 import 'mdui';
 

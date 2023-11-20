@@ -22,6 +22,10 @@ import  {client}  from "../samples/client"
 import { ElMessage } from 'element-plus'
 import axios from 'axios'
 import { UserLogin }from '../apis/index.js'
+import router from '../router';
+const props = defineProps({
+   changehome:Function
+});
 let fromdata = ref({
 	account:'',
 	passwd:''
@@ -36,8 +40,11 @@ function login() {
 	}
 	UserLogin(userdata)
 		.then(res => {
-			console.log(res.status,res.data)
+			console.log(res.status,res.data.token)
+			localStorage.setItem('token',res.data.token)
+			ipcRenderer.send('sync-message')
 			ipcRenderer.send('move-window-to-center');
+			props.changehome()
 		})
 		.catch(err =>{
 			console.log(err)
