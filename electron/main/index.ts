@@ -122,7 +122,7 @@ ipcMain.handle('open-win', (_, arg) => {
   }
 })
 ipcMain.on('sync-message', (event, message) => {
-  win.setSize(1000, 800)
+  win.setSize(1000, 650)
   console.log(message); // 在控制台输出消息内容
   // return '主进程已收到同步消息'; // 返回响应给渲染进程
 });

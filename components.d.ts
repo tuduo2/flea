@@ -7,12 +7,19 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
+    Godead: typeof import('./src/components/Homeviem/godead.vue')['default']
     GoHome: typeof import('./src/components/Homeviem/goHome.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Goliem: typeof import('./src/components/Homeviem/goliem.vue')['default']
+    Goseach: typeof import('./src/components/Homeviem/goseach.vue')['default']
+    HelloWorld: typeof import('./src/components/mainviem/HelloWorld.vue')['default']
     Home: typeof import('./src/components/home.vue')['default']
     Login: typeof import('./src/components/login.vue')['default']
+    New_file: typeof import('./src/components/Homeviem/new_file.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sidebar: typeof import('./src/components/Sidebar.vue')['default']
+    Swipe: typeof import('./src/components/mainviem/Home-view/swipe.vue')['default']
   }
 }

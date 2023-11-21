@@ -1,17 +1,17 @@
 <template>
 	<div>
-		111
+		 
 	</div>
   <div>
     <sidebar id="sidabar"></sidebar>
 	<div id="viem-main">
-		121212312
 		<router-view></router-view>
 	</div>
   </div>
 </template>
 <script setup lang="ts">
 import sidebar from './Sidebar.vue';
+import router from './router'
 </script>
 
 <style scoped>
@@ -19,14 +19,14 @@ import sidebar from './Sidebar.vue';
 		float: left;
 		width:8%;
 		border-radius:10px;
-		height: 80vh;
+		height: 85vh;
 	}
 	#viem-main{
 		float: right;
 		/* width: 60%; */
-		width: 75vw;
-		height: 80vh;
-		background-color: blue;
-		margin-right: 30px;
+		width: 80vw;
+		height: 85vh;
+		background-color: aqua;
+		margin-right: 40px;
 	}
 </style>

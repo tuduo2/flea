@@ -1,9 +1,5 @@
 <template>
-  <div class="top">
-    <div class='top-btn-grm'>
-      <!-- <mdui-icon-clear class="btn" @click="closwin()" /> -->
-    </div>
-  </div>
+
   <login  :changehome="changehome" v-if="islogin" />
   <home v-else />
 </template>
