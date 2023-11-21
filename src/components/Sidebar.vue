@@ -3,12 +3,14 @@
 	import goseach from './Homeviem/goseach.vue'
 	import godead  from './Homeviem/godead.vue'
 	import goliem from './Homeviem/goliem.vue'
+	import gocom from './Homeviem/gocom.vue'
 </script>
 
 <template>
 	<div>
 		<goHomebtn class="btngrops"></goHomebtn>
 		<goseach class="btngrops"></goseach>
+		<gocom class="btngrops"></gocom>
 		<goliem class="btngrops"></goliem>
 		<godead class="btngrops"></godead>
 	</div>
@@ -20,7 +22,7 @@
 }
 .btngrops{
 	width: 100%;
-	margin-top: 55px;
+	margin-top:40px;
 	display: flex;
 	justify-content: center; /* 水平居中 */
 	align-items: center; /* 垂直居中 */

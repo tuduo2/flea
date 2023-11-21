@@ -7,8 +7,11 @@
 </template>
 
 <script setup lang="ts">
+import router from '../../router'
 function goliem(){
-	
+	router.push({
+		name:'item'
+	})
 }
 </script>
 

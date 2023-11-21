@@ -7,6 +7,25 @@ const routes: Array<RouteRecordRaw> = [
     name: 'home',
     component: () => import('../components/mainviem/HelloWorld.vue'),
   },
+  {
+    path: '/commod',
+    name: 'commod',
+    component: () => import('../components/commod-viem/commod.vue'),
+  },
+  {
+    path: '/item',
+    name: 'item',
+    component: () => import('../components/item-viem/item-viem.vue'),
+  },
+  {
+    path: '/seach',
+    name: 'seach',
+    component: () => import('../components/seach-viem/seach.vue'),
+  },
+  {
+	  path:'/commodinfo/?id',
+	  component:()=>import('../components/commodinfo.vue')
+  }
 ]
 
 const router = createRouter({

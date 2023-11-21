@@ -8,8 +8,11 @@
 </template>
 
 <script setup lang="ts">
+import router from '../../router'
 function gohome(){
-	
+	router.push({
+		name:'home'
+	})
 }
 </script>
 

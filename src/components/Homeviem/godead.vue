@@ -7,8 +7,9 @@
 </template>
 
 <script setup lang="ts">
+import {ipcRenderer} from 'electron'
 function godead(){
-	
+	ipcRenderer.send('colswin','11')
 }
 </script>
 
