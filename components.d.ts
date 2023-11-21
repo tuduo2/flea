@@ -7,6 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AddComBtn: typeof import('./src/components/commod-viem/addComBtn.vue')['default']
+    Addcommodfrom: typeof import('./src/components/commod-viem/Comminfo/addcommodfrom.vue')['default']
+    Comcard: typeof import('./src/components/mainviem/Home-view/comcard.vue')['default']
     Commod: typeof import('./src/components/commod-viem/commod.vue')['default']
     Commodinfo: typeof import('./src/components/commodinfo.vue')['default']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']

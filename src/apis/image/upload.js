@@ -5,7 +5,8 @@ export  const Upload = (data,token)=>{
 	return request({
 		url: '/api/asset/image/upload',
 		headers: {
-		      'Authorization': `Bearer ${token}`
+		      'Authorization': `Bearer ${token}`,
+					'Content-Type': 'multipart/form-data'
 		},
 		data
 	})

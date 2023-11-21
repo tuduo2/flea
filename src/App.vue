@@ -1,6 +1,5 @@
 <template>
-
-  <login  :changehome="changehome" v-if="islogin" />
+  <login :changehome="changehome" v-if="islogin" />
   <home v-else />
 </template>
 
@@ -9,14 +8,14 @@ import '@mdui/icons/clear.js';
 import { ref } from 'vue';
 import login from './components/login.vue';
 import home from './components/home.vue';
-import {ipcRenderer} from 'electron'
+import { ipcRenderer } from 'electron'
 let islogin = ref(true)
-function changehome(){
-	islogin.value = !islogin.value
+function changehome() {
+  islogin.value = !islogin.value
 }
-function closwin(){
-	console.log('121')
-	ipcRenderer.send('colswin','11')
+function closwin() {
+  console.log('121')
+  ipcRenderer.send('colswin', '11')
 }
 
 </script>
@@ -33,12 +32,12 @@ function closwin(){
   width: 100%;
 }
 
-.btn{
-	z-index: 50;
-	-webkit-app-region: no-drag;
+.btn {
+  z-index: 50;
+  -webkit-app-region: no-drag;
 }
-	
-.btn:hover{
-	cursor: hand;
+
+.btn:hover {
+  cursor: hand;
 }
 </style>
